@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donning and Doffing PPE Procedures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c6eb5;
+            --secondary: #50b7b3;
+            --accent: #d9534f;
+            --light: #f0f7ff;
+            --dark: #2c3e50;
+            --success: #5cb85c;
+            --warning: #f0ad4e;
+            --gray: #f8f9fa;
+            --border: #dee2e6;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card-secondary {
+            border-left-color: var(--secondary);
+        }
+        
+        .card-accent {
+            border-left-color: var(--accent);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .flowchart {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .flow-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .conversation {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .dialogue {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        
+        .nurse {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .patient {
+            background: #f1f8e9;
+            border-left: 4px solid var(--success);
+        }
+        
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .documentation {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .doc-field {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .doc-label {
+            font-weight: bold;
+            min-width: 150px;
+        }
+        
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .knowledge-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .knowledge-item h3 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .knowledge-item h3 i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .procedure-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .procedure-column {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .procedure-column h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            .grid, .knowledge-grid, .procedure-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Donning and Doffing PPE Procedures</h1>
+            <p class="subtitle">A comprehensive guide for healthcare professionals</p>
+        </header>
+        
+        <section>
+            <h2>Assessment of Donning Procedure</h2>
+            <div class="card">
+                <p>Before donning Personal Protective Equipment (PPE), healthcare workers must perform a thorough assessment to ensure proper protection and adherence to infection control protocols.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Patient Condition</h3>
+                    <p>Assess the need for PPE based on the patient's condition and isolation protocol.</p>
+                </div>
+                <div class="card">
+                    <h3>Environment</h3>
+                    <p>Evaluate the environment for cleanliness and availability of PPE.</p>
+                </div>
+                <div class="card">
+                    <h3>Healthcare Worker</h3>
+                    <p>Assess the healthcare worker's knowledge and skill level related to donning.</p>
+                </div>
+                <div class="card">
+                    <h3>Contraindications</h3>
+                    <p>Ensure absence of contraindications (e.g., allergies to latex or specific PPE materials).</p>
+                </div>
+                <div class="card">
+                    <h3>PPE Type</h3>
+                    <p>Confirm the type of PPE required (Standard, Contact, Droplet, Airborne precautions).</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Assessment Before Doffing PPE</h2>
+            <div class="grid">
+                <div class="card card-secondary">
+                    <h3>Doffing Area</h3>
+                    <p>Ensure designated doffing area is available and clean.</p>
+                </div>
+                <div class="card card-secondary">
+                    <h3>Supplies</h3>
+                    <p>Check availability of hand hygiene supplies and waste bins.</p>
+                </div>
+                <div class="card card-secondary">
+                    <h3>Contamination</h3>
+                    <p>Check for visible contamination on PPE.</p>
+                </div>
+                <div class="card card-secondary">
+                    <h3>Staff Preparedness</h3>
+                    <p>Ensure staff is trained and mentally prepared to doff without rushing.</p>
+                </div>
+                <div class="card card-secondary">
+                    <h3>Assistant</h3>
+                    <p>Confirm assistant (if available) is ready to guide or monitor the procedure.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Donning and Doffing Procedures</h2>
+            <div class="procedure-columns">
+                <div class="procedure-column">
+                    <h3>Donning Procedure</h3>
+                    <div class="flowchart">
+                        <div class="flow-step">
+                            <div class="flow-number">1</div>
+                            <div>Perform hand hygiene</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">2</div>
+                            <div>Put on shoe cover</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">3</div>
+                            <div>Put on head cap</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">4</div>
+                            <div>Put on gown (tie at neck & waist)</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">5</div>
+                            <div>Put on mask/respirator (fit properly)</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">6</div>
+                            <div>Put on eye protection (goggles/face shield)</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">7</div>
+                            <div>Put on gloves (cover cuffs of gown)</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">8</div>
+                            <div>Done</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="procedure-column">
+                    <h3>Doffing Procedure</h3>
+                    <div class="flowchart">
+                        <div class="flow-step">
+                            <div class="flow-number">1</div>
+                            <div>Remove shoe cover</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">2</div>
+                            <div>Remove gloves</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">3</div>
+                            <div>Remove face shield/goggles</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">4</div>
+                            <div>Remove gown</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">5</div>
+                            <div>Remove head cap</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">6</div>
+                            <div>Remove mask/respirator</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">7</div>
+                            <div>Discard all PPE safely</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">8</div>
+                            <div>Final hand hygiene</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- <section>
+            <h2>Training Demonstration</h2>
+            <div class="conversation">
+                <div class="dialogue nurse">
+                    <p><strong>Nurse Sarah:</strong> "Good morning I am nurse Sarah. Today, I will be explaining about TB infection. This disease spreads mainly through Airborne and close contact. To prevent transmission, health care workers must wear Personal Protective Equipment (PPE) properly. PPE protects both the patient and us from infection."</p>
+                </div>
+                <div class="dialogue nurse">
+                    <p><strong>Nurse Sarah:</strong> "Now, let me demonstrate the correct sequence of wearing (donning) PPE."</p>
+                </div>
+                <div class="dialogue nurse">
+                    <p><strong>Nurse Sarah:</strong> "Now I will show how to remove the PPE."</p>
+                </div>
+                <div class="dialogue nurse">
+                    <p><strong>Nurse Sarah:</strong> "While removing PPE, we must be extra careful, because the outer surface may be contaminated. That's why hand hygiene is the final and most important step."</p>
+                </div>
+                <div class="dialogue nurse">
+                    <p><strong>Nurse Sarah:</strong> "So, to summarize: PPE is a vital barrier against infection. Always follow the correct donning and doffing sequence, and never forget hand hygiene. This protects you, your colleagues, and your patients."</p>
+                </div>
+            </div>
+        </section> -->
+        
+        <section>
+            <h2>Required Equipment</h2>
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-hands-wash"></i></div>
+                    <div>Alcohol-based hand rub / Soap & water</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-trash-alt"></i></div>
+                    <div>Waste disposal bin (biohazard)</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-mirror"></i></div>
+                    <div>Mirror (optional, for self-monitoring)</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div>Assistant/observer checklist (optional)</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-head-side-mask"></i></div>
+                    <div>Mask/Respirator</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-user-md"></i></div>
+                    <div>Gown</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-glasses"></i></div>
+                    <div>Goggles/Face shield</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-hand-paper"></i></div>
+                    <div>Gloves</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-shoe-prints"></i></div>
+                    <div>Shoe covers</div>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon"><i class="fas fa-hat-cowboy"></i></div>
+                    <div>Head cap</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Prerequisite Knowledge</h2>
+            <div class="knowledge-grid">
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-exchange-alt"></i> Understanding Sequence</h3>
+                    <p>Understanding the correct sequence of PPE removal to minimize contamination risk.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-hands"></i> Hand Hygiene</h3>
+                    <p>Importance of hand hygiene after every step of doffing procedure.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-user-shield"></i> Self-Contamination Prevention</h3>
+                    <p>Proper technique to avoid self-contamination during doffing.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-tshirt"></i> PPE Types</h3>
+                    <p>Familiarity with different types of PPE and their proper removal techniques.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-clinic-medical"></i> Local Protocols</h3>
+                    <p>Knowledge of local infection control protocols and guidelines.</p>
+                </div>
+                <div class="knowledge-item">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Contamination Awareness</h3>
+                    <p>Understanding which PPE surfaces are considered contaminated and how to handle them safely.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Documentation</h2>
+            <div class="documentation">
+                <div class="doc-field">
+                    <div class="doc-label">Date</div>
+                    <div id="doc-date"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Time</div>
+                    <div id="doc-time"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Name</div>
+                    <div id="doc-nurse_name"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Designation</div>
+                    <div id="doc-designation"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Type of PPE Doffed:</div>
+                    <div id="doc-ppe_doffed"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Presence of Observer/Supervisor:</div>
+                    <div id="doc-presence_of_observer"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Each Step Followed Correctly:</div>
+                    <div id="doc-step_followed_correctly"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Hand Hygiene Performed After Each Step:</div>
+                    <div id="doc-hand_hygiene"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Proper Disposal of PPE in Biohazard Bin</div>
+                    <div id="doc-disposal_of_ppe"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Correct Doffing Sequence Followed</div>
+                    <div id="doc-doffing_sequence_followed"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Final Outcome</div>
+                    <div id="doc-final_outcome"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Signature of HCW</div>
+                    <div id="doc-signature_of_hcw"></div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Signature of Observer (if present)</div>
+                    <div id="doc-signature_of_observer"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Key Safety Points</h2>
+            <div class="documentation">
+                <div class="doc-field">
+                    <div class="doc-label">Proper Disposal:</div>
+                    <div>Discard all PPE safely in biohazard bin</div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Contamination Check:</div>
+                    <div>Note any breach or self-contamination</div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Sequence Verification:</div>
+                    <div>Ensure correct doffing sequence followed</div>
+                </div>
+                <div class="doc-field">
+                    <div class="doc-label">Final Outcome:</div>
+                    <div>Procedure completed safely / Protocol breached</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Donning and Doffing PPE Procedures Guide | For Medical Training Purposes</p>
+            <p>RJPT Informatics Pvt. Ltd.</p>
+        </footer>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const vars = queryString.split("&");
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split("=");
+                params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
+            }
+            return params;
+        }
+
+        const data = getQueryParams();
+
+        // Insert into page
+        document.getElementById("doc-date").innerText = data.date || "-";
+        document.getElementById("doc-time").innerText = data.time || "-";
+        document.getElementById("doc-nurse_name").innerText = data.nurseName || "-";
+        document.getElementById("doc-designation").innerText = data.designation || "-";
+        document.getElementById("doc-ppe_doffed").innerText = data.ppe_doffed || "-";
+        document.getElementById("doc-presence_of_observer").innerText = data.presence_of_observer || "-";
+        document.getElementById("doc-step_followed_correctly").innerText = data.step_followed || "-";
+        document.getElementById("doc-hand_hygiene").innerText = data.hand_hygine || "-";
+        document.getElementById("doc-disposal_of_ppe").innerText = data.disposal_of_ppe || "-";
+        document.getElementById("doc-self_contamination").innerText = data.self_contamination_noted || "-";
+        document.getElementById("doc-doffing_sequence_followed").innerText = data.doffing_sequence_followed || "-";
+        document.getElementById("doc-final_outcome").innerText = data.final_outcome || "-";
+        document.getElementById("doc-signature_of_hcw").innerText = data.sign_of_hcw || "-";
+        document.getElementById("doc-signature_of_observer").innerText = data.sign_of_observer || "-";
+    </script>
+</body>
+</html>
